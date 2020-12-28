@@ -1,6 +1,7 @@
 package uk.ac.uos;
 
 import java.math.BigInteger;
+import java.util.EmptyStackException;
 import java.util.Random;
 
 public class KeyGen {
@@ -9,28 +10,51 @@ public class KeyGen {
 
     private BigInteger p, q, n, phi, d, c;
     private BigInteger e = BigInteger.valueOf(65537);
-    private int bitSize = 256;
+    private int bitSize = 256 ;
     private int eBitSize = 256;
     private Random rando = new Random();
 
+    Encrypt ec = new Encrypt();
+    Decrypt dc = new Decrypt();
+
     //Generate PRNG primes
-    void RSA() {
+    void RSAKeyGen() {
         p = probPrime(p);
         q = probPrime(q);
         n = p.multiply(q);
         phi = p.subtract(one).multiply(q.subtract(one));
 
+        d = e.modInverse(phi);
+        BigInteger x = euclid(phi, e);
+        System.out.println(x);
+
+        BigInteger mes = BigInteger.valueOf(12345678);
+        BigInteger f = ec.encrypt(mes,e,n);
+        BigInteger g = dc.decrypt(f,d,n);
+        System.out.println("this is PLAINTEXT: " +mes);
+        System.out.println("this is ENCRYPTED: " +f);
+        System.out.println("THIS IS DECRYPTED: " +g);
 
 
 
-        System.out.println(q);
-        System.out.println(p);
-        System.out.println(n);
-        System.out.println(phi);
-        System.out.println("this is E: " +e);
-        System.out.println("this is C: " +c);
+
 
     }
+
+    private BigInteger phiFinder(BigInteger p, BigInteger q){
+        BigInteger thi = p.subtract(one).multiply(q.subtract(one));
+        return thi;
+    }
+
+    private void euler(BigInteger p,BigInteger q){
+       BigInteger n = p.multiply(q);
+       BigInteger phi = p.subtract(one).multiply(q.subtract(one));
+        BigInteger a = BigInteger.valueOf(5);
+        BigInteger z = a.modPow(phi, n);
+        System.out.println("this is Z: " +z);
+
+    }
+
     private BigInteger eDerive(BigInteger phi) {
         BigInteger z = BigInteger.probablePrime(eBitSize, rando);
 
@@ -43,21 +67,29 @@ public class KeyGen {
 
     }
 
+
     private BigInteger euclid(BigInteger phi, BigInteger e){
         if (e == BigInteger.ZERO){
 
             System.out.println("this is e: " + e);
             return phi;
 
+        } if (phi == BigInteger.ZERO) {
+
+            System.out.println("ERROR");
+
         } else System.out.println("this is phi " +phi+ "\n" + "this is e: " +e);
             return euclid(e, phi.mod(e));
 
 
     }
+
+
     private BigInteger probPrime(BigInteger a){
         a = BigInteger.probablePrime(bitSize, rando);
         System.out.println("this is A: " + a);
 
         return a;
+
     }
 }
