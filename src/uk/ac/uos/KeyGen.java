@@ -18,7 +18,7 @@ public class KeyGen {
     Decrypt dc = new Decrypt();
 
     //Generate PRNG primes
-    void RSAKeyGen() {
+    public  void RSAKeyGen() {
         p = probPrime(p);
         q = probPrime(q);
         n = p.multiply(q);
@@ -30,9 +30,14 @@ public class KeyGen {
 
         BigInteger mes = BigInteger.valueOf(12345678);
         BigInteger f = ec.encrypt(mes,e,n);
+        String fb = Encoding.b64Encoder(f);
+        BigInteger fbc = Encoding.b64Decoder(fb);
+
         BigInteger g = dc.decrypt(f,d,n);
         System.out.println("this is PLAINTEXT: " +mes);
         System.out.println("this is ENCRYPTED: " +f);
+        System.out.println("this is FB: " +fb);
+        System.out.println("this is FBC: " +fbc);
         System.out.println("THIS IS DECRYPTED: " +g);
 
 
