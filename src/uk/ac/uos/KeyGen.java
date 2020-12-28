@@ -1,6 +1,8 @@
 package uk.ac.uos;
 
 import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.EmptyStackException;
 import java.util.Random;
 
@@ -18,7 +20,7 @@ public class KeyGen {
     Decrypt dc = new Decrypt();
 
     //Generate PRNG primes
-    public  void RSAKeyGen() {
+    public  void RSAKeyGen(byte[] mes) {
         p = probPrime(p);
         q = probPrime(q);
         n = p.multiply(q);
@@ -28,12 +30,22 @@ public class KeyGen {
         BigInteger x = euclid(phi, e);
         System.out.println(x);
 
-        BigInteger mes = BigInteger.valueOf(12345678);
-        BigInteger f = ec.encrypt(mes,e,n);
+
+        BigInteger mestr = new BigInteger(mes);
+        System.out.println("this is PLAINTEXT: " +mestr);
+        BigInteger f = ec.encrypt(mestr,e,n);
         String fb = Encoding.b64Encoder(f);
         BigInteger fbc = Encoding.b64Decoder(fb);
 
-        BigInteger g = dc.decrypt(f,d,n);
+
+        BigInteger g = dc.decrypt(fbc,d,n);
+
+
+        byte[] backout = g.toByteArray();
+
+        String srt = new String(backout);
+        System.out.println("this is SRT: " +srt);
+
         System.out.println("this is PLAINTEXT: " +mes);
         System.out.println("this is ENCRYPTED: " +f);
         System.out.println("this is FB: " +fb);
