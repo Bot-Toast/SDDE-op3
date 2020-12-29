@@ -1,5 +1,6 @@
 package uk.ac.uos;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -8,11 +9,15 @@ import java.util.Random;
 
 public class KeyGen {
 
+    FileOps fO = new FileOps();
+
     private final static BigInteger one = new BigInteger("1");
+    private final static BigInteger zero = new BigInteger("0");
+
 
     private BigInteger p, q, n, phi, d, c;
     private BigInteger e = BigInteger.valueOf(65537);
-    private int bitSize = 256 ;
+    private int bitSize = 256;
     private int eBitSize = 256;
     private Random rando = new Random();
 
@@ -20,37 +25,51 @@ public class KeyGen {
     Decrypt dc = new Decrypt();
 
     //Generate PRNG primes
-    public  void RSAKeyGen(byte[] mes) {
+    public  void RSAKeyGen() throws IOException {
         p = probPrime(p);
         q = probPrime(q);
         n = p.multiply(q);
         phi = p.subtract(one).multiply(q.subtract(one));
-
         d = e.modInverse(phi);
         BigInteger x = euclid(phi, e);
-        System.out.println(x);
+
+        String pKey = Encoding.b64Encoder(e);
+        String modulus = Encoding.b64Encoder(n);
+        String prvKey = Encoding.b64Encoder(d);
+        System.out.println("This is exponent: " +pKey+ "\n");
+        System.out.println("This is modulus: " +modulus+ "\n");
+        System.out.println("This is decode: " +prvKey+ "\n");
 
 
-        BigInteger mestr = new BigInteger(mes);
-        System.out.println("this is PLAINTEXT: " +mestr);
+      fO.writeToFile("C:\\Users\\Blyat\\Documents\\public", pKey, modulus);
+      fO.writeToFile("C:\\Users\\Blyat\\Documents\\private", prvKey, modulus);
+
+
+
+
+
+       /* BigInteger mestr = null;// = new BigInteger();
+        System.out.println("this is BIGINT before encryption: " +mestr);
         BigInteger f = ec.encrypt(mestr,e,n);
+        System.out.println("this is ENCRYPTED: " +f);
         String fb = Encoding.b64Encoder(f);
+        System.out.println("this is base64 encoded: " +fb);
         BigInteger fbc = Encoding.b64Decoder(fb);
-
+        System.out.println("this is base64 decoded: " +fbc);
 
         BigInteger g = dc.decrypt(fbc,d,n);
+        System.out.println("\n" + "THIS IS DECRYPTED: " +g+ "\n");
 
 
         byte[] backout = g.toByteArray();
 
         String srt = new String(backout);
-        System.out.println("this is SRT: " +srt);
+        System.out.println("this is Text is encoded back to Unicode: " +srt);*/
 
-        System.out.println("this is PLAINTEXT: " +mes);
-        System.out.println("this is ENCRYPTED: " +f);
-        System.out.println("this is FB: " +fb);
-        System.out.println("this is FBC: " +fbc);
-        System.out.println("THIS IS DECRYPTED: " +g);
+
+
+
+
 
 
 
@@ -88,14 +107,14 @@ public class KeyGen {
     private BigInteger euclid(BigInteger phi, BigInteger e){
         if (e == BigInteger.ZERO){
 
-            System.out.println("this is e: " + e);
+      //      System.out.println("this is e: " + e);
             return phi;
 
         } if (phi == BigInteger.ZERO) {
 
             System.out.println("ERROR");
 
-        } else System.out.println("this is phi " +phi+ "\n" + "this is e: " +e);
+        } else;
             return euclid(e, phi.mod(e));
 
 
@@ -104,7 +123,7 @@ public class KeyGen {
 
     private BigInteger probPrime(BigInteger a){
         a = BigInteger.probablePrime(bitSize, rando);
-        System.out.println("this is A: " + a);
+
 
         return a;
 

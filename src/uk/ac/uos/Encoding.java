@@ -33,4 +33,20 @@ public class Encoding {
 
     }
 
+    public static BigInteger strToBig(String line) {
+
+        BigInteger strBGone = new BigInteger(line);
+
+        return strBGone;
+    }
+    public static BigInteger bytesToBig(byte[] toDecode) {
+
+        String Xeee = new String(toDecode);
+
+        BigInteger bigInteger = new BigInteger(Xeee);
+
+        return bigInteger;
+
+    }
+
 }
