@@ -1,14 +1,9 @@
 package uk.ac.uos;
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -16,70 +11,82 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FileOps fO = new FileOps();
 
-        KeyGen kg = new KeyGen();
+        KeyOps kg = new KeyOps();
 
+
+       /* Scanner kbInput = new Scanner(System.in);
+        System.out.println("please choose destination folder for public key: ");
+        String pbPath = kbInput.nextLine();
+        System.out.println("please choose destination folder for private key: ");
+        String prvPath = kbInput.nextLine();
+        kbInput.close();
+
+        kg.RSAKeyGen(pbPath, prvPath); */
 
 
         Scanner input1 = new Scanner(new File("C:\\Users\\Blyat\\Documents\\public.key"));
         Scanner input2 = new Scanner(new File("C:\\Users\\Blyat\\Documents\\private.key"));
-        List<String> pubKeyLoad = new ArrayList<String>();
-        List<String> prvKeyLoad = new ArrayList<String>();
+        Scanner fileIn = new Scanner(new File("C:\\Users\\Blyat\\Documents\\input.txt"));
+
+
         String exp64;
         String modU64;
         String prv64;
 
 
+        kg.pubKeyLoad(input1);
+        exp64 = BagOfHolding.pubKeyLoad.get(1);
+        kg.prvKeyLoad(input2);
+        modU64 = BagOfHolding.prvKeyLoad.get(0);
+        prv64 = BagOfHolding.prvKeyLoad.get(1);
+
+        BigInteger expBI = Encoding.b64Decoder(exp64);
+        BagOfHolding.pubKeyBigInt[1] = expBI;
+        System.out.println("this is pub exp: " + expBI);
+        BigInteger modUBI = Encoding.b64Decoder(modU64);
+        BagOfHolding.pubKeyBigInt[0] = modUBI;
+        System.out.println("this is prv mod: " + modUBI);
+        BigInteger prvBI = Encoding.b64Decoder(prv64);
+        BagOfHolding.prvKeyBigInt[1] = prvBI;
+        System.out.println("this is prv exp: " + prvBI);
 
 
+        FileOps.fileReadToEncrypt();
 
+        /* byte[] thbyTe = new byte[128];
+        InputStream is = new FileInputStream("C:\\Users\\Blyat\\Documents\\output.txt");
+        OutputStream os = new FileOutputStream("C:\\Users\\Blyat\\Documents\\output1.txt");
+        int readBytes = 0;
 
+        while ((readBytes = is.read(thbyTe)) != -1) {
 
-        prvKeyLoad.add(input2.nextLine());
-        while (input1.hasNextLine()) {
-            String temp1 = input1.nextLine();
-            pubKeyLoad.add(temp1);
+            BigInteger ciph = new BigInteger(thbyTe, 0, readBytes);
+            System.out.println(ciph);
 
-
+            BigInteger decrypted = Decrypt.decryptFile(ciph, prvBI, modUBI);
+            String x = Encoding.bigIntToBytes(decrypted);
+            System.out.println("this message is decrypted?: " + x);
         }
 
-        while (input2.hasNextLine()) {
-            String temp1 = input2.nextLine();
-            prvKeyLoad.add(temp1);
+
+         while (fileIn.hasNextLine() == true) {
+                String temp2 = fileIn.nextLine();
+                BagOfHolding.holdThings = temp2.getBytes(StandardCharsets.US_ASCII);
+
+                BigInteger ciph = new BigInteger(String.valueOf());
+                System.out.println(ciph);
+
+                BigInteger decrypted = Decrypt.decryptFile(ciph, prvBI, modUBI);
+                String x = Encoding.bigIntToBytes(decrypted);
+                System.out.println("this message is decrypted?: " + x);
+            }
 
 
-        }
 
 
-        exp64 = pubKeyLoad.get(1);
-        modU64 = pubKeyLoad.get(0);
-        prv64 = prvKeyLoad.get(1);
-
-       BigInteger expBI = Encoding.b64Decoder(exp64);
-       BigInteger modUBI = Encoding.b64Decoder(modU64);
-       BigInteger prvBI = Encoding.b64Decoder(prv64);
-        System.out.println("exponent: "+expBI);
-        System.out.println("modulus: " +modUBI);
-        System.out.println("decode: " +prvBI);
 
 
-        StringBuilder sb = new StringBuilder();
 
-        Scanner fileIn = new Scanner(new File("C:\\Users\\Blyat\\Documents\\input.txt"));
-       while (fileIn.hasNextLine()) {
-           String temp2 = fileIn.nextLine();
-           //fileIn.forEachRemaining(s -> sb.append(s).append(temp2));
-           System.out.println("this is TEMP: "+temp2);
-           byte[] bMSMA = temp2.getBytes(StandardCharsets.US_ASCII);
-           BigInteger strnig = new BigInteger(bMSMA);
-           System.out.println(strnig);
-           BigInteger bigsuk = Encrypt.encrypt(strnig, expBI, modUBI);
-           System.out.println(bigsuk);
-           String medsuk = Encoding.b64Encoder(bigsuk);
-           System.out.println(medsuk);
-           BigInteger tinysuk = Encoding.b64Decoder(medsuk);
-           System.out.println(tinysuk);
-           BigInteger smallsuck = Decrypt.decrypt(bigsuk, prvBI, modUBI);
-           System.out.println(smallsuck);
 
        }
 
