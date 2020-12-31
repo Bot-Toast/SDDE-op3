@@ -3,6 +3,7 @@ package uk.ac.uos;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
@@ -10,11 +11,11 @@ public class Encoding {
 
 
     public static String b64Encoder(BigInteger toEncode) {
-        Base64.Encoder encoder = Base64.getEncoder();
+        Base64.Encoder encoder = Base64.getMimeEncoder();
 
         String thing = toEncode.toString();
 
-        byte[] encodeBigIntBytes = toEncode.toByteArray();
+        byte[] encodeBigIntBytes = thing.getBytes(StandardCharsets.US_ASCII);
 
         String encodedBytes = encoder.encodeToString(encodeBigIntBytes);
 
@@ -33,9 +34,9 @@ public class Encoding {
 
     public static BigInteger b64Decoder(String toDecode) {
 
-        byte[] bytese = Base64.getDecoder().decode(toDecode);
+        byte[] bytese = Base64.getMimeDecoder().decode(toDecode);
 
-        String Xeee = new String(bytese);
+        String Xeee = new String(bytese, StandardCharsets.US_ASCII);
 
         BigInteger bigInteger = new BigInteger(Xeee);
 

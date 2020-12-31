@@ -16,13 +16,13 @@ public class KeyOps {
 
     private BigInteger p, q, n, phi, d;
     private final BigInteger e = new BigInteger("65537");
-    private int bitSize = 3072;
+    private int bitSize = 1536;
     private int eBitSize = 256;
     private Random rando = new Random();
 
 
 
-    //Generate PRNG primes
+    //Generate Crypto Values - with file paths for saving, PrvKey will be coded.
     public  void RSAKeyGen(String path1, String path2) throws IOException {
         p = probPrime(p);
         q = probPrime(q);
@@ -37,6 +37,7 @@ public class KeyOps {
         System.out.println("This is exponent: " +pKey+ "\n");
         System.out.println("This is modulus: " +modulus+ "\n");
         System.out.println("This is decode: " +prvKey+ "\n");
+
 
         FileOps.writeKeysToFile(path1, pKey, modulus);
         FileOps.writeKeysToFile(path2, prvKey, modulus);
@@ -66,41 +67,6 @@ public class KeyOps {
 
 
         }
-
-    }
-
-
-
-    private BigInteger phiFinder(BigInteger p, BigInteger q){
-        BigInteger thi = p.subtract(one).multiply(q.subtract(one));
-        return thi;
-    }
-
-
-    private void euler(BigInteger p,BigInteger q){
-       BigInteger n = p.multiply(q);
-       BigInteger phi = p.subtract(one).multiply(q.subtract(one));
-        BigInteger a = BigInteger.valueOf(5);
-        BigInteger z = a.modPow(phi, n);
-        System.out.println("this is Z: " +z);
-
-    }
-
-
-
-    private BigInteger euclid(BigInteger phi, BigInteger e){
-        if (e == BigInteger.ZERO){
-
-
-            return phi;
-
-        } if (phi == BigInteger.ZERO) {
-
-            System.out.println("ERROR");
-
-        } else;
-            return euclid(e, phi.mod(e));
-
 
     }
 
