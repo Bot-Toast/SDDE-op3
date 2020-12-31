@@ -51,7 +51,8 @@ public class Main {
         System.out.println("this is prv exp: " + prvBI);
 
 
-        FileOps.fileReadToEncrypt();
+       FileOps.fileReadToDecrypt();
+
 
         /* byte[] thbyTe = new byte[128];
         InputStream is = new FileInputStream("C:\\Users\\Blyat\\Documents\\output.txt");

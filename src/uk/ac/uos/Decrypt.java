@@ -4,10 +4,10 @@ import java.math.BigInteger;
 
 public class Decrypt {
 
-    public static BigInteger decryptFile(BigInteger c, BigInteger d, BigInteger n){
-        BigInteger dCry;
+    public static byte[] decryptFile(byte[] c, BigInteger d, BigInteger n){
 
-        return dCry = c.modPow(d, n);
+
+        return (new BigInteger(c)).modPow(d, n).toByteArray();
 
 
     }

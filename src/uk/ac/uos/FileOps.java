@@ -2,11 +2,19 @@ package uk.ac.uos;
 
 import java.io.*;
 import java.math.BigInteger;
-import java.nio.charset.Charset;
+
+
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Scanner;
 
+
 public class FileOps {
+
+       private static int readBytes;
+
+
+
 
     public static void writeKeysToFile(String filePath, String key, String mod) throws IOException {
         File f = new File(filePath);
@@ -24,72 +32,83 @@ public class FileOps {
     public static void fileReadToEncrypt() throws IOException {
 
 
-        BufferedInputStream is = new BufferedInputStream(new FileInputStream("C:\\Users\\Blyat\\Documents\\input.txt"));
 
-        int readBytes;
-        byte[] bamS = new byte[192];
-
-        while ((readBytes = is.read(bamS)) != -1) {
+        BufferedInputStream isToEncrypt = new BufferedInputStream(new FileInputStream("C:\\Users\\Blyat\\Documents\\input.txt"));
 
 
-            BigInteger temp3 = new BigInteger(bamS, 0, readBytes);
+        byte[] fileBuffer1 = new byte[384];
+
+        while ((readBytes = isToEncrypt.read(fileBuffer1)) != -1) {
+
+
+            BigInteger temp3 = new BigInteger(fileBuffer1, 0, readBytes);
             System.out.println("dis read temp3 : " + temp3);
 
 
             BigInteger expOWN = BagOfHolding.pubKeyBigInt[1];
             BigInteger modUBI = BagOfHolding.pubKeyBigInt[0];
             BigInteger prvOwn = BagOfHolding.prvKeyBigInt[1];
-            BigInteger f = Encrypt.encryptFile(temp3, expOWN, modUBI);
+            BigInteger f = Encrypt.encryptFile(fileBuffer1, expOWN, modUBI);
             System.out.println("encrypt : " + f + " HEHEHHE");
-            String tis = Encoding.b64Encoder(f);
-            //System.out.println(tis);
-            writeFiles(tis);
+            System.out.println(f);
+            byte[] bigg = f.toByteArray();
+            String bis = Encoding.b64Clone(bigg);
+            System.out.println(bis);
+
+          //String cg = Encoding.b64DecoderClone(fcc);
+          //  System.out.println(cg);
+
+          //  byte[] tj = f.toByteArray();
+         //   String fc = new String(tj, StandardCharsets.ISO_8859_1);
+             BagOfHolding.stringArray.add(bis);
+                decryptWriteFilesBack();
+
+            /*  String tis = Encoding.b64Encoder(f);
+            BigInteger sti = Encoding.b64Decoder(tis);
+            BigInteger frr = Decrypt.decryptFile(sti, prvOwn, modUBI);
+            System.out.println("this is STI   " +sti);
+            byte[] thini = frr.toByteArray();
+            String sdt = new String(thini);
+            BagOfHolding.stringArray.add(sdt);
+            System.out.println(sdt); */
 
 
         }
-        is.close();
+
+        isToEncrypt.close();
     }
 
-        public static void writeFiles (String tis) throws IOException {
 
-            String fiP = "C:\\Users\\Blyat\\Documents\\output.txt";
-            File fp = new File(fiP);
-            fp.getParentFile().mkdirs();
-
-            FileWriter fos = new FileWriter(fp + ".txt");
-            fos.write(tis);
-            fos.flush();
-            fos.close();
+    public static void decryptWriteFilesBack () throws IOException {
+        File fp = new File("C:\\Users\\Blyat\\Documents\\output.txt");
+       PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fp)));
+        for (String stringOut : BagOfHolding.stringArray) {
+            pw.write(stringOut);
         }
 
-       /* while (fileIn.hasNextLine()) {
-            String temp2 = fileIn.nextLine();
 
-            BagOfHolding.holdThings = temp2.getBytes(StandardCharsets.US_ASCII);
-            BigInteger temp3 = new BigInteger(BagOfHolding.holdThings);
-
-
-
-            BigInteger expOWN = BagOfHolding.pubKeyBigInt[1];
-            BigInteger modUBI = BagOfHolding.pubKeyBigInt[0];
-            BagOfHolding.holdThings = temp2.getBytes(StandardCharsets.US_ASCII);
-            BigInteger f = Encrypt.encryptFile(temp3,expOWN,modUBI);
-            String fb = Encoding.b64Encoder(f);
-
-
-
-            File fi = new File("C:\\Users\\Blyat\\Documents\\output");
-            fi.getParentFile().mkdirs();
-            FileWriter fis = new FileWriter(fi + ".txt");
-            fis.write(fb);
-            fis.flush();
-            fis.close();
-
-
-        }*/
-
-
+        pw.flush();
+        pw.close();
     }
+
+    public static void fileReadToDecrypt() throws IOException {
+
+        Scanner sc = new Scanner("C:\\Users\\Blyat\\Documents\\output.txt");
+
+        while(sc.hasNextLine()) {
+            String s = sc.nextLine();
+            byte[] f = s.getBytes();
+            String z = Encoding.b64DecoderClone(f);
+            System.out.println(z);
+
+
+
+        }
+    }
+}
+
+
+
 
 
 

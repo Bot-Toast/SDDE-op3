@@ -14,9 +14,49 @@ public class Encoding {
 
         String thing = toEncode.toString();
 
-        byte[] encodeBigIntBytes = thing.getBytes(StandardCharsets.UTF_8);
+        byte[] encodeBigIntBytes = toEncode.toByteArray();
 
         String encodedBytes = encoder.encodeToString(encodeBigIntBytes);
+
+        return encodedBytes;
+
+    }
+
+
+    public static String b64Clone(byte[] toEncode) {
+
+        byte[] encodedBytes = Base64.getEncoder().encode(toEncode);
+
+        return new String(encodedBytes);
+
+    }
+
+    public static BigInteger b64Decoder(String toDecode) {
+
+        byte[] bytese = Base64.getDecoder().decode(toDecode);
+
+        String Xeee = new String(bytese);
+
+        BigInteger bigInteger = new BigInteger(Xeee);
+
+        return bigInteger;
+
+    }
+
+    public static String b64DecoderClone(byte[] toDecode) {
+
+        byte[] bytese = Base64.getDecoder().decode(toDecode);
+
+        return new String(bytese);
+
+    }
+
+    public static String utf8Encoder (BigInteger toEncode) {
+
+
+        byte[] encodeBigIntBytes = toEncode.toByteArray();
+
+        String encodedBytes = new String(encodeBigIntBytes, StandardCharsets.UTF_8);
 
         return encodedBytes;
 
@@ -34,17 +74,7 @@ public class Encoding {
 
     }
 
-    public static BigInteger b64Decoder(String toDecode) {
 
-        byte[] bytese = Base64.getDecoder().decode(toDecode);
-
-        String Xeee = new String(bytese);
-
-        BigInteger bigInteger = new BigInteger(Xeee);
-
-        return bigInteger;
-
-    }
 
     public static BigInteger strToBig(String line) {
 
