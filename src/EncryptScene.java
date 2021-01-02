@@ -17,6 +17,7 @@ public class EncryptScene {
     private static Button fileOpen, fileSave, pubKey, okBut, canBut, okBut2, canBut2;
     private static TextArea openText, saveText, keyText;
     private static Label openLabel, saveLabel, keyLabel;
+    private static File keyFile, fileToEncrypt, saveLocation;
 
     public static void encryptScene(Stage window, Scene menu){
 
@@ -47,41 +48,51 @@ public class EncryptScene {
         saveLabel = new Label("Please choose a save location");
         keyLabel = new Label("Please choose your public key");
 
-        //Button Event Action 'listeners' lambdas.
-        canBut.setOnAction(e -> GuiUtility.returnToMenu(window, menu)); //allows user to go back to Main menu
-        okBut.setOnAction(e -> window.setScene(enCryptpt2)); //progresses user to key choice
-        canBut2.setOnAction(e -> window.setScene(enCrypt)); //returns user back a stage to choose files.
-        okBut2.setOnAction(e -> window.setScene(enCryptpt2)); //progresses user to encryption process.
-
 
         //λ functions for choosing a file, then passes file through a method to be used.
 
         fileOpen.setOnAction(e -> {
-            File fileToEncrypt = GuiUtility.fileChoice(window);
-            if (fileToEncrypt != null) {
-                openText.appendText("" + fileToEncrypt.getName()); //displays to user chosen file in gui.
-                GuiUtility.showFile(fileToEncrypt);
+            File tempFile1 = GuiUtility.fileChoice(window);
+            if (tempFile1 != null) {
+                openText.appendText("" + tempFile1.getName()); //displays to user chosen file in gui.
+                fileToEncrypt = GuiUtility.showFile(tempFile1);
+                saveLocation = GuiUtility.showFile(tempFile1);
             }
         });
 
         //change to save
         fileSave.setOnAction(e -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Open Resource File");
-            File result = fileChooser.showOpenDialog(window);
+            FileChooser tempFile2 = new FileChooser();
+            tempFile2.setTitle("Open Resource File");
+            File result = tempFile2.showOpenDialog(window);
             if (result != null) {
                 saveText.appendText("" + result.getName());
             }
         });
 
         pubKey.setOnAction(e -> {
-            File pubKeyFile = GuiUtility.fileChoice(window);
-            if (pubKeyFile != null) {
+            File tempFile3 = GuiUtility.fileChoice(window);
+            if (tempFile3 != null) {
                 saveText.clear();
-                keyText.appendText("" + pubKeyFile.getName()); //displays to user chosen file in gui.
-                GuiUtility.showFile(pubKeyFile);
+                keyText.appendText("" + tempFile3.getName()); //displays to user chosen file in gui.
+               keyFile = GuiUtility.showFile(tempFile3);
+
             }
         });
+
+
+
+
+        //Button Event Action 'listeners' lambdas.
+        canBut.setOnAction(e -> GuiUtility.returnToMenu(window, menu)); //allows user to go back to Main menu
+
+        okBut.setOnAction(e -> {
+            GuiUtility.fileNotFoundPromptX2(fileToEncrypt, saveLocation, window, enCryptpt2);
+        }); //progresses user to key choice
+
+        canBut2.setOnAction(e -> window.setScene(enCrypt)); //returns user back a stage to choose files.
+
+        okBut2.setOnAction(e -> { GuiUtility.fileNotFoundPrompt(keyFile);        }); //progresses user to encryption process.
 
 
         //Scene One :  1 = defines nodes used, their positions & spacing between them.
@@ -156,6 +167,7 @@ public class EncryptScene {
 
         //CSS file to define style, Dark mode is nicer on the eyes, we know you stay up late to mark these!
         enCryptpt2.getStylesheets().add("DarkMode.css");
+
 
 
         //Instantiates the Scene inside the Stage.
