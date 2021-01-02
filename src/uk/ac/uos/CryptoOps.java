@@ -4,25 +4,27 @@ import java.math.BigInteger;
 
 public class CryptoOps {
 
-    public static BigInteger decryptFile(BigInteger c, BigInteger d, BigInteger n){
+    //Method to perform standard decryption
+    public static BigInteger decryptFile(BigInteger c){
 
-       BigInteger m;
 
+        BigInteger n = BagOfHolding.prvKeyBigInt[0];
+        BigInteger d = BagOfHolding.prvKeyBigInt[1];
 
-        return m = c.modPow(d, n);
+            return c.modPow(d, n);
 
 
     }
 
-
+    //Method to perform standard encryption.
     public static BigInteger encryptFile(BigInteger m) {
 
-        BigInteger c;
+
         BigInteger n = BagOfHolding.pubKeyBigInt[0];
         BigInteger e = BagOfHolding.pubKeyBigInt[1];
 
 
-        return c = m.modPow(e, n);
+            return m.modPow(e, n);
 
     }
 

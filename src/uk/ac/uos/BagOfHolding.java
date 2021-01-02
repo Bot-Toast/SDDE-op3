@@ -7,60 +7,26 @@ import java.util.List;
 public class BagOfHolding {
 
 
-    public static byte[] holdThings = new byte[128]; {
+    //Loads keys in B64
+    public static  List<String> pubKeyLoad = new ArrayList<>();
 
-    }
+    //Loads keys once decoded as BigInt Strings.
+    public static  BigInteger[] pubKeyBigInt = new BigInteger[2];
 
+    //Loads keys in B64
+    public static List<String> prvKeyLoad = new ArrayList<>();
 
-    public static  List<String> pubKeyLoad = new ArrayList<String>();{
+    //Loads keys once decoded as BigInt Strings.
+    public static BigInteger[] prvKeyBigInt = new BigInteger[2] ;
 
+    //Files read in are stored here.
+    public static List<String> fileReadList = new ArrayList<>();
 
-
-    }
-
-    public static  BigInteger[] pubKeyBigInt = new BigInteger[2];{
-
-
-
-    }
-
-    public static List<String> prvKeyLoad = new ArrayList<String>(); {
-
-
-
-
-}
-
-    public static BigInteger[] prvKeyBigInt = new BigInteger[2] ;{
-
-
-    }
-
-    public static List<String> stringWriteList = new ArrayList<String>(); {
+    //To then be transferred here and written to disk (Have yet to find out why using a single list makes the program commit seppuku, possibly acts a buffer between functions?)
+    public static List<String> fileWriteList = new ArrayList<>();
 
 
 
 
-    }
 
-    public static List<String> stringReadList = new ArrayList<String>(); {
-
-
-
-
-    }
-
-    public static List<String> tempArrs1 = new ArrayList<String>(); {
-
-
-
-
-    }
-
-    public static List<String> tempArrs2 = new ArrayList<String>(); {
-
-
-
-
-    }
 }
