@@ -7,7 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ProgramCloseBox {
+public class ConfirmBox {
 
     static boolean answer;
 
@@ -16,7 +16,7 @@ public class ProgramCloseBox {
         Stage alertWindow = new Stage();
 
 
-        alertWindow.initModality(Modality.APPLICATION_MODAL); //alert box must be closed
+        alertWindow.initModality(Modality.APPLICATION_MODAL); //Stops user ignoring pop-up stage
         alertWindow.setTitle(title);
         alertWindow.setMinWidth(250);
 
@@ -36,12 +36,13 @@ public class ProgramCloseBox {
             alertWindow.close();
         });
 
-        HBox layout = new HBox(10);
-        layout.getChildren().addAll(exitLabel,yesButton,noButton);
-        layout.setAlignment(Pos.CENTER);
+        HBox boxLayout = new HBox(10);
+        boxLayout.getChildren().addAll(exitLabel,yesButton,noButton);
+        boxLayout.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(layout, 250, 75);
+        Scene scene = new Scene(boxLayout, 250, 75);
         alertWindow.setScene(scene);
+        alertWindow.setResizable(false); //lock stage size
         alertWindow.showAndWait();  //before it returns to window 1 it needs to be closed going back to caller. (blocks user interaction.
 
         return answer;
