@@ -1,7 +1,7 @@
 # SDDEop3
 Code Host for assignment: 
 
-Here is the Code for my (s203594) assignment.
+Here is the Code for my (s***594) assignment.
 
 It also documents all the changes :
 
@@ -29,5 +29,5 @@ otherwise it may not run.
 
 
 Thanks,
-Bot-Toast. (s203594)
+Bot-Toast. (s***594)
 
