@@ -4,8 +4,11 @@ Code Host for assignment:
 Here is the Code for my (s203594) assignment.
 
 It also documents all the changes :
+
 See Dev for main logic progression.
+
 See Dev_gui for user interface progression
+
 and See integration for the joining of the two.
 
 Apologies if there are any rude Variable names, I haven't gone back over them so I can't remmeber.
