@@ -21,32 +21,35 @@ public class KeyOps {
     //Fixed bitsize used with rando in probPrime function.
     private  final int bitSize = 1536;
     private  Random rando = new Random();
+    FileOps fiO = new FileOps();
 
 
-    private File pvKeyLoc = (new File(System.getProperty("user.home"), ".\\Roaming\\private"));
+    private File pvKeyLoc = (new File(System.getProperty("user.home"), ".\\Roaming\\private.key"));
 
     //Method to generate Crypto values - path is passed in to save in the location user wants, PrvKey path will be hardcoded.
     public void RSAKeyGen(File path1) throws IOException {
-
-        p = probPrime();
-        q = probPrime();
-        n = p.multiply(q);
-        phi = p.subtract(one).multiply(q.subtract(one));
-        d = e.modInverse(phi);
-        System.out.println("ello");
-
-        //encoding to be saved as B64.
-        String pKey = Encoding.b64Encoder(e);
-        String modulus = Encoding.b64Encoder(n);
-        String prvKey = Encoding.b64Encoder(d);
-
-        //This code saves the .key files to disk.
-
-        FileOps.writeKeysToFile(path1, pKey, modulus);
-        FileOps.writeKeysToFile(pvKeyLoc, prvKey, modulus);
+        try {
+            p = probPrime();
+            q = probPrime();
+            n = p.multiply(q);
+            phi = p.subtract(one).multiply(q.subtract(one));
+            d = e.modInverse(phi);
 
 
+            //encoding to be saved as B64.
+            String pKey = Encoding.b64Encoder(e);
+            String modulus = Encoding.b64Encoder(n);
+            String prvKey = Encoding.b64Encoder(d);
 
+            //This code saves the .key files to disk.
+
+            fiO.writeKeysToFile(path1, pKey, modulus);
+            fiO.writeKeysToFile(pvKeyLoc, prvKey, modulus);
+
+
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
     //Method to help keep code clean, but also to add a bit of seed randomisation using JVM time in nanoseconds.

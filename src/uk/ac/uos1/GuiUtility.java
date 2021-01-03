@@ -5,9 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -24,7 +22,7 @@ public class GuiUtility {
             if (answer) {
                 System.out.println("Program exiting");
                 stage.close();
-            } else if (!answer) {
+            } else {
 
                 System.out.println("Program Resumed");
             }
@@ -41,7 +39,7 @@ public class GuiUtility {
             if (answer) {
                 System.out.println("Return to menu");
                 stage.setScene(scene);
-            } else if (!answer) {
+            } else {
 
                 System.out.println("Resumed");
             }
@@ -51,13 +49,6 @@ public class GuiUtility {
 
     }
 
-    //Method to pull File into path
-    public static File showFile(File store) {
-        return store;
-    }
-
-
-
     //Method to clear up lambda code - opens chosen file, stores in file variable.
     public static File fileOpenChoice(Stage window) {
         File fileOfChoice;
@@ -66,7 +57,8 @@ public class GuiUtility {
         fileChum.setInitialDirectory(new File(System.getProperty("user.home"), ".\\Documents")); //specifies users Documents file.
         fileChum.setTitle("Select a File");
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("txt files (*.txt)", "*.txt");
-        fileChum.getExtensionFilters().add(extFilter);
+        FileChooser.ExtensionFilter extFilter2 = new FileChooser.ExtensionFilter("rtf files (*.rtf)", "*.rtf");
+        fileChum.getExtensionFilters().addAll(extFilter, extFilter2);
         fileOfChoice = fileChum.showOpenDialog(window);
         return fileOfChoice;
 
@@ -80,8 +72,9 @@ public class GuiUtility {
         fileChum.setInitialDirectory(new File(System.getProperty("user.home"), ".\\Documents")); //specifies users Documents file.
         fileChum.setTitle("Select a File");
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("txt files (*.txt)", "*.txt");
-        fileChum.getExtensionFilters().add(extFilter);
-        fileOfChoice = fileChum.showOpenDialog(window);
+        FileChooser.ExtensionFilter extFilter2 = new FileChooser.ExtensionFilter("rtf files (*.rtf)", "*.rtf");
+        fileChum.getExtensionFilters().addAll(extFilter, extFilter2);
+        fileOfChoice = fileChum.showSaveDialog(window);
         return fileOfChoice;
 
     }
@@ -99,6 +92,18 @@ public class GuiUtility {
 
     }
 
+    //Method to choose location of public key.
+    public static File keyOpenChoice(Stage window) {
+        File fileOfChoice;
+        FileChooser fileChum = new FileChooser();
+        fileChum.setInitialDirectory(new File(System.getProperty("user.home"), ".\\Documents")); //specifies users Documents file.
+        fileChum.setTitle("Select a File");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("key files (*.key)", "*.key");
+        fileChum.getExtensionFilters().add(extFilter);
+        fileOfChoice = fileChum.showOpenDialog(window);
+        return fileOfChoice;
+
+    }
 
 
     //Method for making Hboxes for fileChoosing nodes.
@@ -124,36 +129,28 @@ public class GuiUtility {
     }
 
 
-    /*public static void fileNotFoundPrompt(File file) {
+
+
+    public static void filePromptX2(File file, File file2, String label, String label2)  {
+
         try {
-
-            if (file != null) {
-                AlertBox.display();
-            } else aBox.dispray("Error, no file found", "Please choose a file.");
-
-        } catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        }
-    }
-
-     */
-
-
-
-    public static void fileNotFoundPromptX2(File file, File file2, String label, String label2) throws FileNotFoundException {
-
-
             if (file != null && file2 != null) {
-
+                System.out.println(file);
+                System.out.println(file2);
                  AlertBox.display(file,file2, label, label2);
 
-            } else if (file != null && file2 ==null) {
-                aBox.dispray("Error, no file found", "Please choose a file.");
 
-            } else if (file == null && file2 !=null) {
-                aBox.dispray("Error, no file found", "Please choose a file.");
+            } else if (file != null) {
+                ErrorBox.displayMessage("Error, File not Found", "Please choose a file.");
+
+            } else if (file2 != null) {
+                ErrorBox.displayMessage("Error, File not Found", "Please choose a file.");
             }
-              else aBox.dispray("Error, no file found", "Please choose a file.");
+              else ErrorBox.displayMessage("Error, no file found", "Please choose a file.");
+    }catch (FileNotFoundException fileNotFoundException) {
+        fileNotFoundException.printStackTrace();
     }
+}
+
 }
 

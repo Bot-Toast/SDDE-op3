@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class CryptoOps {
 
     //Method to perform standard decryption
-    public static BigInteger decryptFile(BigInteger c){
+    public static BigInteger decryptFile(BigInteger c) {
 
 
         BigInteger n = BagOfHolding.prvKeyBigInt[0];

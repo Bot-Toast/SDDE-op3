@@ -10,20 +10,16 @@ import javafx.stage.Stage;
 import uk.ac.uos.KeyOps;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.security.Key;
-import java.security.interfaces.RSAKey;
-import java.security.spec.RSAKeyGenParameterSpec;
+
 
 public class KeyGenScene {
 
     //Variable Declarations.
-    private static Stage printShow;
     private static Scene keyGen;
     private static Button fileSave, okBut, canBut, showFileBut;
-    private static TextArea saveText, keyText;
-    private static Label  saveLabel, keyLabel;
+    private static TextArea saveText;
+    private static Label  saveLabel;
     private static File pubKeyLoc, pvKeyLoc;
     public static void keyGenScene(Stage window, Scene menu){
 
@@ -31,6 +27,7 @@ public class KeyGenScene {
 
         KeyOps kO = new KeyOps();
         pvKeyLoc = kO.getPvKeyLoc();
+
         //Button nodes.
         fileSave = new Button("File");
         okBut = new Button("Ok");
@@ -54,15 +51,12 @@ public class KeyGenScene {
       okBut.setOnAction(e -> {
           try {
               kO.RSAKeyGen(pubKeyLoc);
-              GuiUtility.fileNotFoundPromptX2(pvKeyLoc, pubKeyLoc, "Public Key", "Private Key");
           } catch (IOException ioException) {
               ioException.printStackTrace();
           }
-      }); //progresses user to key choice
+          GuiUtility.filePromptX2(pvKeyLoc, pubKeyLoc, "Public Key", "Private Key");
 
-
-       // showFileBut.setOnAction(e ->  //returns user back a stage to choose files.
-
+      });
 
 
         //λ functions for choosing a file path to save, then passes file through a method to be used.

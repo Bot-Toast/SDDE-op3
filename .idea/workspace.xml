@@ -1,62 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22a2c7c8-204b-4ee5-add5-11b65ccd97ac" name="Default Changelist" comment="code integration begun, KeyGen functionality fully working.">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AFL - s203594 - GUI.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AFL - s203594/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AFL2048 - s203594.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/AlertBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/ConfirmBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/DarkMode.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/DecryptScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/EncryptScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/GuiUtility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/KeyGenScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/aBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL - s203594 - GUI/icon/icon2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/icon/icon2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos/BagOfHolding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos/CryptoOps.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos/Encoding.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos/FileOps.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos/KeyOps.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/AlertBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/ConfirmBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/DarkMode.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/DecryptScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/EncryptScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/GuiUtility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/KeyGenScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AFL2048 - s203594/uk/ac/uos1/aBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/AFL2048 - s203594/AutoCryptoTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/AFL2048 - s203594/KeyGenPerfTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icon/icon2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/BagOfHolding.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/CryptoOps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/Encoding.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/FileOps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/KeyOps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/AlertBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/ConfirmBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/DarkMode.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/DecryptScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/EncryptScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/GuiUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/KeyGenScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/aBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/AutoCryptoTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/KeyGenPerfTest.java" beforeDir="false" />
+    <list default="true" id="22a2c7c8-204b-4ee5-add5-11b65ccd97ac" name="Default Changelist" comment="Complete Program finished... for now.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/CryptoOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos/CryptoOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/FileOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos/FileOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/KeyOps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos/KeyOps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/AlertBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/AlertBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/ConfirmBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/ConfirmBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/DecryptScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/DecryptScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/EncryptScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/EncryptScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/GuiUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/GuiUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/KeyGenScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/KeyGenScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uos1/aBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uos1/ErrorBox.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +71,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -144,6 +112,7 @@
       <workItem from="1609617302091" duration="8047000" />
       <workItem from="1609625834138" duration="5090000" />
       <workItem from="1609632074470" duration="51000" />
+      <workItem from="1609633797320" duration="19081000" />
     </task>
     <task id="LOCAL-00001" summary="Restart project :(">
       <created>1609162720166</created>
@@ -236,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609446697246</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="code integration begun, KeyGen functionality fully working.">
+      <created>1609633936689</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609633936689</updated>
+    </task>
+    <task id="LOCAL-00015" summary="code integration begun, KeyGen functionality fully working.">
+      <created>1609634236994</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609634236994</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +249,9 @@
     <MESSAGE value="Fixed previous issue. File read in was reading in the filepath not the file itself. Don't drive tired folks." />
     <MESSAGE value="cleaning up code, adding last utility functions, refactoring some functions. GUI next." />
     <MESSAGE value="Main program logic is finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Main program logic is finished." />
+    <MESSAGE value="code integration begun, KeyGen functionality fully working." />
+    <MESSAGE value="Complete Program finished... for now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete Program finished... for now." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

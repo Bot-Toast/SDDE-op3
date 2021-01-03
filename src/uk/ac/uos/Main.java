@@ -17,39 +17,23 @@ import uk.ac.uos1.EncryptScene;
 import uk.ac.uos1.GuiUtility;
 import uk.ac.uos1.KeyGenScene;
 
-import java.io.IOException;
+
 
 
 public class Main extends Application{
 
     Stage aflWindow;
-    Stage fileDisplay;
-    Scene login, mainMenu;
+    Scene mainMenu;
     Image aflIcon = new Image("icon/icon2.png");
-    Button closeProgram, toEncryptButt, toDecryptButt, toRSAKeyGenButt, dMode, testBut;
+    Button closeProgram, toEncryptButt, toDecryptButt, toRSAKeyGenButt;
     Label mmLabel, aflLabel;
 
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
 
         launch(args);
 
-        KeyOps kO = new KeyOps();
-
-       // Scanner kbInput = new Scanner(System.in);
-      //  System.out.println("please choose destination folder for public key: ");
-      //  String pbPath = kbInput.nextLine();
-      //  kbInput.close();
-
-
-
-      //  FileOps.prvKeyLoad();
-      //  FileOps.pubKeyLoad("C:\\Users\\Blyat\\Documents\\public.key");
-
-         //3072bit key = 384 characters before shit happens.
-      //   FileOps.textReader();
-       //  FileOps.fileWriter("2");
 
 
     }

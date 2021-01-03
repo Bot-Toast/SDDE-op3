@@ -6,16 +6,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import uk.ac.uos.FileOps;
 
 public class EncryptScene {
 
+
     //Variable Declarations.
-    private static Stage printShow;
     private static Scene enCrypt, enCryptpt2;
     private static Button fileOpen, fileSave, pubKey, okBut, canBut, okBut2, canBut2;
     private static TextArea openText, saveText, keyText;
@@ -23,7 +22,7 @@ public class EncryptScene {
     private static File keyFile, fileToEncrypt, saveLocation;
 
     public static void encryptScene(Stage window, Scene menu){
-
+        FileOps fiO = new FileOps();
         //Variable Initialisation.
 
         //Button nodes.
@@ -52,31 +51,37 @@ public class EncryptScene {
         keyLabel = new Label("Please choose your public key");
 
 
-        //λ functions for choosing a file, then passes file through a method to be used.
 
+        //λ functions for choosing a file, then passes file through a method to be used.
         fileOpen.setOnAction(e -> {
-            File tempFile1 = GuiUtility.fileOpenChoice(window);
-            if (tempFile1 != null) {
-                openText.appendText("" + tempFile1.getName()); //displays to user chosen file in gui.
-                fileToEncrypt = GuiUtility.showFile(tempFile1);
-                saveLocation = GuiUtility.showFile(tempFile1);
-            }
+             fileToEncrypt = GuiUtility.fileOpenChoice(window);
+            openText.clear();
+             if (fileToEncrypt != null) {
+                openText.appendText("" + fileToEncrypt.getName()); //displays to user chosen file in gui.
+
+
+
+             }
         });
 
-        //change to save
+        //User selected path for saving encrypted file.
         fileSave.setOnAction(e -> {
             saveLocation = GuiUtility.fileSaveChoice(window);
+            saveText.clear();
             if (saveLocation != null) {
                 saveText.appendText("" + saveLocation.getName());
+
+
             }
         });
 
+        //Loads public key.
         pubKey.setOnAction(e -> {
-            File tempFile3 = GuiUtility.fileOpenChoice(window);
-            if (tempFile3 != null) {
-                saveText.clear();
-                keyText.appendText("" + tempFile3.getName()); //displays to user chosen file in gui.
-               keyFile = GuiUtility.showFile(tempFile3);
+            keyFile = GuiUtility.keyOpenChoice(window);
+            keyText.clear();
+            if (keyFile != null) {
+                keyText.appendText("" + keyFile.getName()); //displays to user chosen file in gui.
+                fiO.pubKeyLoad(keyFile);
 
             }
         });
@@ -85,21 +90,30 @@ public class EncryptScene {
 
 
         //Button Event Action 'listeners' lambdas.
-        canBut.setOnAction(e -> GuiUtility.returnToMenu(window, menu)); //allows user to go back to Main menu
+        //Allows user to go back to Main menu
+        canBut.setOnAction(e -> GuiUtility.returnToMenu(window, menu));
 
-        okBut.setOnAction(e -> {
-            window.setScene(enCryptpt2);
-        }); //progresses user to key choice
 
-        canBut2.setOnAction(e -> window.setScene(enCrypt)); //returns user back a stage to choose files.
+        //Progresses user to key choice scene.
+        okBut.setOnAction(e -> window.setScene(enCryptpt2));
 
+
+        //Returns user back a stage to choose files.
+        canBut2.setOnAction(e -> window.setScene(enCrypt));
+
+        //Loads necessary values/files for encryption process, and then displays them.
         okBut2.setOnAction(e -> {
-            try {
-                GuiUtility.fileNotFoundPromptX2(keyFile, fileToEncrypt, "Plain Text", "Encrypted Text");
-            } catch (FileNotFoundException fileNotFoundException) {
-                fileNotFoundException.printStackTrace();
-            }
-        }); //progresses user to encryption process.
+            fiO.textReader(fileToEncrypt);
+            fiO.fileWriter(saveLocation, "1");
+            GuiUtility.filePromptX2(saveLocation, fileToEncrypt, "Encrypted Text", "Plain Text");
+
+        });
+
+
+
+
+
+
 
 
         //Scene One :  1 = defines nodes used, their positions & spacing between them.
@@ -174,8 +188,6 @@ public class EncryptScene {
 
         //CSS file to define style, Dark mode is nicer on the eyes, we know you stay up late to mark these!
         enCryptpt2.getStylesheets().add("uk/ac/uos1/DarkMode.css");
-
-
 
         //Instantiates the Scene inside the Stage.
         window.setScene(enCrypt);

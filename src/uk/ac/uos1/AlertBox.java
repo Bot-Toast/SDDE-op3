@@ -30,6 +30,7 @@ public class AlertBox {
 
 
         okBut = new Button("Close Window");
+        canBut = new Button("Show Files");
 
         txtBox1 = new TextArea();
         txtBox1.setMinSize(300, 700);
@@ -54,6 +55,8 @@ public class AlertBox {
         txTa(fileIn2);
 
         okBut.setOnAction(e -> fileViewStage.close());
+        canBut.setOnAction(e -> GuiUtility.filePromptX2(fileIn, fileIn2,
+                        label, label2));
 
 
 
@@ -69,8 +72,8 @@ public class AlertBox {
         textView2.setPadding(new Insets(0,20,20,0));
 
         HBox closeWin = new HBox(10);
-        closeWin.getChildren().add(okBut);
-        closeWin.setPadding(new Insets(0, 0,200,875));
+        closeWin.getChildren().addAll(canBut, okBut);
+        closeWin.setPadding(new Insets(0, 0,200,800));
 
         BorderPane showTxt = new BorderPane();
         showTxt.setLeft(textView1);

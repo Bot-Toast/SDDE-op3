@@ -8,9 +8,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class aBox {
+public class ErrorBox {
 
-public static void dispray(String title, String message){
+public static void displayMessage(String title, String message){
 
     Stage errorWin = new Stage();
 
