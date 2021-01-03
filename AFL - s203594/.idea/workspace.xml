@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="22a2c7c8-204b-4ee5-add5-11b65ccd97ac" name="Default Changelist" comment="can now do the full encrypt/decrypt process." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="ProjectId" id="1mHpSfAAEP35BzDkyUUpLTEr4iP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uk.ac.uos.Main" />
+      <module name="AFL2048 - s203594" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22a2c7c8-204b-4ee5-add5-11b65ccd97ac" name="Default Changelist" comment="" />
+      <created>1609160373153</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609160373153</updated>
+      <workItem from="1609160374675" duration="3775000" />
+      <workItem from="1609165344178" duration="25136000" />
+      <workItem from="1609234663275" duration="19540000" />
+      <workItem from="1609259946495" duration="13802000" />
+      <workItem from="1609321715554" duration="26139000" />
+      <workItem from="1609358352424" duration="13432000" />
+      <workItem from="1609408144828" duration="39294000" />
+      <workItem from="1609495976895" duration="1960000" />
+      <workItem from="1609503851790" duration="6000" />
+      <workItem from="1609537208495" duration="680000" />
+      <workItem from="1609583185270" duration="22000" />
+      <workItem from="1609583586784" duration="3000" />
+      <workItem from="1609605012487" duration="2932000" />
+      <workItem from="1609617302091" duration="9646000" />
+    </task>
+    <task id="LOCAL-00001" summary="Restart project :(">
+      <created>1609162720166</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609162720166</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added some algorithms to derive variables, Sticking with 65537 as exponent for industry conformance.">
+      <created>1609171092438</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609171092438</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added encrypt + decrypt functions">
+      <created>1609186844843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609186844843</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added encoding and decoding functions">
+      <created>1609190760576</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609190760576</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added encoding and decoding functions">
+      <created>1609190799657</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609190799657</updated>
+    </task>
+    <task id="LOCAL-00006" summary="can now do the full encrypt/decrypt process.">
+      <created>1609193340865</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609193340865</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added :&#10;&#10;File read function;&#10;Key read, store, and load functions;&#10;Full Spaghetti still.">
+      <created>1609276210315</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609276210315</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add file writing capability, can now encrypt blocks of 192bytes">
+      <created>1609355371418</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609355371418</updated>
+    </task>
+    <task id="LOCAL-00009" summary="b64 decoding doesn't suspect some bytes are being changed somewhere in write process. Going to change to work with byte &gt; strings.">
+      <created>1609408765961</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1609408765961</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed previous issue. File read in was reading in the filepath not the file itself. Don't drive tired folks.">
+      <created>1609409942500</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609409942500</updated>
+    </task>
+    <task id="LOCAL-00011" summary="cleaning up code, adding last utility functions, refactoring some functions. GUI next.">
+      <created>1609446660789</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1609446660789</updated>
+    </task>
+    <task id="LOCAL-00012" summary="cleaning up code, adding last utility functions, refactoring some functions. GUI next.">
+      <created>1609446686733</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609446686733</updated>
+    </task>
+    <task id="LOCAL-00013" summary="cleaning up code, adding last utility functions, refactoring some functions. GUI next.">
+      <created>1609446697246</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609446697246</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Main program logic is finished.">
+      <created>1609625598283</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609625598283</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Restart project :(" />
+    <MESSAGE value="Added some algorithms to derive variables, Sticking with 65537 as exponent for industry conformance." />
+    <MESSAGE value="Added encrypt + decrypt functions" />
+    <MESSAGE value="Added encoding and decoding functions" />
+    <MESSAGE value="can now do the full encrypt/decrypt process." />
+    <MESSAGE value="Added :&#10;&#10;File read function;&#10;Key read, store, and load functions;&#10;Full Spaghetti still." />
+    <MESSAGE value="add file writing capability, can now encrypt blocks of 192bytes" />
+    <MESSAGE value="b64 decoding doesn't suspect some bytes are being changed somewhere in write process. Going to change to work with byte &gt; strings." />
+    <MESSAGE value="Fixed previous issue. File read in was reading in the filepath not the file itself. Don't drive tired folks." />
+    <MESSAGE value="cleaning up code, adding last utility functions, refactoring some functions. GUI next." />
+    <MESSAGE value="Main program logic is finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Main program logic is finished." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
