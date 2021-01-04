@@ -20,10 +20,10 @@ SDK will be included in .Zip.
 
 Also don't forget to add these JVM options.
 
-on Intellij -> goto Run then edit configurations, select blue drop down 'modify options' and add VM options. 
+for IDEA64 -> goto Run then edit configurations, select blue drop down 'modify options' and add VM options. 
 Paste the below into that and apply.
 
---module-path "C:\Java\javafx-sdk-15.0.1\lib" --add-modules javafx.controls,javafx.fxml
+--module-path "*YOURPATH*\javafx-sdk-15.0.1\lib" --add-modules javafx.controls,javafx.fxml
 
 otherwise it may not run.
 
