@@ -60,9 +60,6 @@ public class AlertBox {
 
 
 
-
-
-
         VBox textView1 = new VBox(30);
         textView1.getChildren().addAll(stageLabel,txtBox1);
         textView1.setPadding(new Insets(0,20,20,20));
@@ -93,17 +90,16 @@ public class AlertBox {
         fileViewStage.showAndWait();  //before it returns to window 1 it needs to be closed going back to caller. (blocks user interaction.
 
     }
-
+    //function for printing a file to text area 1 for the user.
     private static void txAT(File file) throws FileNotFoundException {
-        System.out.println(file);
         Scanner sc = new Scanner(file).useDelimiter("[\\r\\n]");
         while (sc.hasNextLine()) {
             txtBox1.appendText("\n" + sc.nextLine());
 
         }
     }
+    //function for printing a file to text area 2 for the user.
     private static void txTa(File file) throws FileNotFoundException {
-        System.out.println(file);
         Scanner sc = new Scanner(file).useDelimiter("[\\r\\n]");
         while (sc.hasNextLine()) {
             txtBox2.appendText("\n" + sc.nextLine());

@@ -20,14 +20,10 @@ public class GuiUtility {
         try {
             boolean answer = ConfirmBox.display("Exit Program", "Are you sure?");
             if (answer) {
-                System.out.println("Program exiting");
                 stage.close();
-            } else {
-
-                System.out.println("Program Resumed");
             }
-        } catch (Exception e) {
-            System.out.println("oof");
+        } catch (Exception e) { System.out.println("/shrug");
+
         }
 
     }
@@ -37,14 +33,10 @@ public class GuiUtility {
         try {
             boolean answer = ConfirmBox.display("Return to main menu?", "Are you sure?");
             if (answer) {
-                System.out.println("Return to menu");
                 stage.setScene(scene);
-            } else {
-
-                System.out.println("Resumed");
             }
-        } catch (Exception e) {
-            System.out.println("oof");
+
+        } catch (Exception e) { System.out.println("/frown");
         }
 
     }
@@ -135,8 +127,6 @@ public class GuiUtility {
 
         try {
             if (file != null && file2 != null) {
-                System.out.println(file);
-                System.out.println(file2);
                  AlertBox.display(file,file2, label, label2);
 
 

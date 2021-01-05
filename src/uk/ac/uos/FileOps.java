@@ -71,17 +71,14 @@ try{
     }
 
 
-    //Loads and decodes!
+      //Loads and decodes!
         prvModU64 = BagOfHolding.prvKeyLoad.get(0);
         prv64 = BagOfHolding.prvKeyLoad.get(1);
         BigInteger prvBI = Encoding.b64Decoder(prv64);
         BagOfHolding.prvKeyBigInt[1] = prvBI;
         BigInteger prvModUbi = Encoding.b64Decoder(prvModU64);
         BagOfHolding.prvKeyBigInt[0] = prvModUbi;
-        System.out.println(prvModUbi);
-        System.out.println(prvBI);
-        System.out.println(BagOfHolding.pubKeyBigInt[0]);
-        System.out.println(BagOfHolding.pubKeyBigInt[1]);
+
 
 
 
@@ -98,8 +95,6 @@ try{
 
 
         while ((tikka = bfr.readLine()) != null) {
-            String delimiter = (System.getProperty("line.separator"));
-            String[] daRay = tikka.split(delimiter);
             BagOfHolding.fileReadList.add(tikka);
 
         }
@@ -107,7 +102,6 @@ try{
             for (String madras : BagOfHolding.fileReadList){
                 if (!madras.isEmpty()) {
                     BagOfHolding.fileWriteList.add(madras);
-                    System.out.println(BagOfHolding.fileWriteList.size());
                 }
         }
 
@@ -141,12 +135,12 @@ try{
 
                 //Loops encryption
                 for (String masala : BagOfHolding.fileWriteList) {
-                    System.out.println("THIS IS MASALA : " +masala);
+
                     str2Byte = masala.getBytes(StandardCharsets.US_ASCII);
                     mesSage = new BigInteger(str2Byte);
                     cipHer = CryptoOps.encryptFile(mesSage);
                     cipherStr = Encoding.b64Encoder(cipHer);
-                    System.out.println(cipherStr);
+
 
                     //writerOps
                     bfWriter.write(cipherStr);

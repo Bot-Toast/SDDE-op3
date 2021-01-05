@@ -26,7 +26,7 @@ public class Main extends Application{
     Scene mainMenu;
     Image aflIcon = new Image("icon/icon2.png");
     Button closeProgram, toEncryptButt, toDecryptButt, toRSAKeyGenButt;
-    Label mmLabel, aflLabel;
+    Label mmLabel;
 
 
 
